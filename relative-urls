@@ -1,0 +1,34 @@
+#!/usr/bin/python
+
+import sys
+import re
+
+URL_REGEX = r'''^.*?("|')(/[\w\d.~:/?#@!$&()*+,;%=[\]-]*?)(\1).*?$'''
+
+def decode_and_sanitize(bs):
+    content = bs.decode('ascii', 'replace')
+    content = re.sub(r';', '\n', content)
+    return content
+
+def main():
+    if len(sys.argv) == 1:
+        file = sys.stdin.buffer
+    else:
+        file = open(sys.argv[1], 'rb')
+
+    content = decode_and_sanitize(file.read())
+
+    matched_endpoints = []
+
+    for line in content.splitlines():
+        for url in re.findall(URL_REGEX, line):
+            if url[1] in matched_endpoints:
+                continue
+
+            print(url[1])
+            matched_endpoints.append(url[1])
+
+    file.close()
+
+if __name__ == '__main__':
+    main()
