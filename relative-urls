@@ -3,7 +3,7 @@
 import sys
 import re
 
-URL_REGEX = r'''^.*?("|')(/[\w\d.~:/?#@!$&()*+,;%=[\]-]*?)(\1).*?$'''
+URL_REGEX = r'''^.*?("|')(https?:/)?(/[\w\d.~:/?#@!$&()*+,;%=[\]-]*?)(\1).*?$'''
 
 HELP = """Usage: {} [FILE...]
 
@@ -24,7 +24,7 @@ def extract_endpoints(file):
 
     for line in content.splitlines():
         for url in re.findall(URL_REGEX, line):
-            endpoints.add(url[1])
+            endpoints.add(url[2])
 
     return endpoints
 
