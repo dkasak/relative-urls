@@ -12,8 +12,8 @@ arguments. If files are passed, stdin is ignored."""
 
 
 def decode_and_sanitize(bs):
-    content = bs.decode('ascii', 'replace')
-    content = re.sub(r';', '\n', content)
+    content = bs.decode("ascii", "replace")
+    content = re.sub(r";\s*$", "\n", content)
     return content
 
 
