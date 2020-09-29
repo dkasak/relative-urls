@@ -1,9 +1,7 @@
-#!/usr/bin/python
-
 import sys
 import re
 
-URL_REGEX = r'''^.*?("|')(https?:/)?(/[\w\d.~:/?#@!$&()*+,;%=[\]-]*?)(\1).*?$'''
+URL_REGEX = r'''^.*?("|')(https?://[a-zA-Z0-9.-]+)?(/[\w\d.~:/?#@!$&()*+,;%=[\]-]*?)(\1).*?$'''
 
 HELP = """Usage: {} [FILE...]
 
@@ -45,7 +43,3 @@ def main():
 
     for endpoint in sorted(endpoints):
         print(endpoint)
-
-
-if __name__ == '__main__':
-    main()
