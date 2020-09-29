@@ -41,5 +41,7 @@ def main():
     else:
         endpoints.update(extract_endpoints(sys.stdin.buffer.read()))
 
+    endpoints.discard("/")
+
     for endpoint in sorted(endpoints):
         print(endpoint)
