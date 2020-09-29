@@ -13,5 +13,5 @@ which are valid in an URL so it will catch some additional endpoints.
 
 # Usage
 
-- `relative-urls some-file.js`
+- `relative-urls some-file.js another-file.js`
 - `curl https://some-url.com/ | relative-urls`
