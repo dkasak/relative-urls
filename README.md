@@ -1,14 +1,15 @@
 # About
 
 This is a simple tool to extract potential web endpoints (relative URLs) from
-a file or stdin, based on some heuristics. It can be useful when bug hunting
-for security vulnerabilities.
+a file or stdin, based on some heuristics. Useful when bug hunting.
 
-It is similar to jobertabma's
-[relative-url-extractor](https://github.com/jobertabma/relative-url-extractor),
+It's similar to jobertabma's [relative-url-extractor][relative-url-extractor],
 except it's written in Python and can also receive input from stdin, since
 I often use commands in a pipeline. It also allows some additional characters
-which are valid in an URL so it might catch a bit more endpoints.
+which are valid in an URL so it will catch some additional endpoints.
+
+[relative-url-extractor]:
+<https://github.com/jobertabma/relative-url-extractor>
 
 # Usage
 
