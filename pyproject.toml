@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "relativeurls"
+version = "1.0"
+authors = ["Denis Kasak <dkasak[at]termina.org.uk>"]
+description = "A tool to extract endpoints (relative URLs) from stdin or files."
+homepage = "https://github.com/dkasak/relative-urls"
+license = "ISC"
+packages = [
+    { include = "relativeurls" }
+]
+
+[tool.poetry.scripts]
+relative-urls = "relativeurls.relativeurls:main"
+
+[build-system]
+requires = ["setuptools", "wheel", "pytest"]
