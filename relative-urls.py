@@ -17,8 +17,8 @@ def decode_and_sanitize(bs):
     return content
 
 
-def extract_endpoints(file):
-    content = decode_and_sanitize(file.read())
+def extract_endpoints(content):
+    content = decode_and_sanitize(content)
 
     endpoints = set()
 
@@ -39,9 +39,9 @@ def main():
     if len(sys.argv) > 1:
         for path in sys.argv[1:]:
             with open(path, "rb") as file:
-                endpoints.update(extract_endpoints(file))
+                endpoints.update(extract_endpoints(file.read()))
     else:
-        endpoints.update(extract_endpoints(sys.stdin.buffer))
+        endpoints.update(extract_endpoints(sys.stdin.buffer.read()))
 
     for endpoint in sorted(endpoints):
         print(endpoint)
