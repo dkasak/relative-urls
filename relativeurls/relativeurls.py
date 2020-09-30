@@ -28,7 +28,7 @@ def extract_endpoints(content):
 
 
 def main():
-    if sys.argv[1] in ["-h", "--help"]:
+    if len(sys.argv) > 1 and sys.argv[1] in ["-h", "--help"]:
         print(HELP.format(sys.argv[0]))
         sys.exit(0)
 
